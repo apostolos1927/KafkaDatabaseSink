@@ -74,7 +74,7 @@ class MyConsumerRebalanceListener(kafka.ConsumerRebalanceListener):
             for tp in revoked:
                 print("Tp revoked", tp)
                 self.offsets_obj.store_offsets(tp.partition)
-                # self.offsets_obj.remove_partition(tp.partition)
+                self.offsets_obj.remove_partition(tp.partition)
         except Exception as e:
             print("On Revoke exception ", e)
 
