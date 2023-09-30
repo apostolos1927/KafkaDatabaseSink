@@ -83,9 +83,9 @@ class MyConsumerRebalanceListener(kafka.ConsumerRebalanceListener):
         try:
             for tp in assigned:
                 print("Tp assigned", tp)
-                # latest_offset = self.offsets_obj.rewind_offset(tp.partition)
-                # print("The latest offset is ", latest_offset)
-                # self.consumer.seek(tp, latest_offset)
+                latest_offset = self.offsets_obj.rewind_offset(tp.partition)
+                print("The latest offset is ", latest_offset)
+                self.consumer.seek(tp, latest_offset)
         except Exception as e:
             print("On Assign exception:", e)
 
