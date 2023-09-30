@@ -120,9 +120,9 @@ def main():
             print("The partition is : {}".format(message.partition))
             print("The offset is : {}".format(message.offset))
             process_record(message, offsets_obj)
-            tp = TopicPartition(message.topic, message.partition)
-            om = OffsetAndMetadata(message.offset + 1, message.timestamp)
-            consumer.commit({tp: om})
+            #tp = TopicPartition(message.topic, message.partition)
+            #om = OffsetAndMetadata(message.offset + 1, message.timestamp)
+            #consumer.commit({tp: om})
             print("*" * 100)
     except Exception as e:
         print("Exception ", e)
